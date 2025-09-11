@@ -2,11 +2,11 @@
 const PRODUCTS = {
     'casa': { name: 'Pão da Casa', price: 20.00 },
     'titi': { name: 'Pão do Titi', price: 25.00 },
-    'premium': { name: 'Costela Premium', price: 29.90 }
+    'premium': { name: 'Cupim Premium', price: 29.90 }
 };
 
 const DELIVERY_FEE = 5.00;
-const WHATSAPP_NUMBER = '5511999999999'; // Substitua pelo número real
+const WHATSAPP_NUMBER = '5569992588282'; // Substitua pelo número real
 
 // Estado da aplicação
 let cart = {};
