@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costela do Titi - Faça seu Pedido</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"><i class="fas fa-hamburger"></i></div>
+                    <div class="logo-text">Costela do Titi</div>
+                </div>
+                
+                <div class="delivery-option">
+                    <button class="delivery-btn active" id="local-btn">Comer no Local</button>
+                    <button class="delivery-btn" id="viagem-btn">Para Viagem</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Costela do Titi</h1>
+            <p>O melhor sanduíche de costela defumada da região</p>
+        </div>
+    </section>
+    
+    <section class="menu">
+        <div class="container">
+            <h2 class="section-title">Nossos Lanches</h2>
+            
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80');"></div>
+                    <div class="item-content">
+                        <h3 class="item-title">Pão da Casa</h3>
+                        <p class="item-description">Pão, carne 120g, queijo, alface e banana frita. Uma combinação clássica e saborosa.</p>
+                        <div class="item-price">R$ 20,00</div>
+                        <div class="item-actions">
+                            <div class="quantity">
+                                <button class="qty-btn" data-product="casa" data-action="decrease">-</button>
+                                <span class="qty-value" id="qty-casa">0</span>
+                                <button class="qty-btn" data-product="casa" data-action="increase">+</button>
+                            </div>
+                            <button class="add-to-cart" data-product="casa">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=2088&q=80');"></div>
+                    <div class="item-content">
+                        <h3 class="item-title">Pão do Titi</h3>
+                        <p class="item-description">Pão, carne 120g, queijo, bacon, alface, cebola roxa e banana frita. Nosso carro-chefe!</p>
+                        <div class="item-price">R$ 25,00</div>
+                        <div class="item-actions">
+                            <div class="quantity">
+                                <button class="qty-btn" data-product="titi" data-action="decrease">-</button>
+                                <span class="qty-value" id="qty-titi">0</span>
+                                <button class="qty-btn" data-product="titi" data-action="increase">+</button>
+                            </div>
+                            <button class="add-to-cart" data-product="titi">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2103&q=80');"></div>
+                    <div class="item-content">
+                        <h3 class="item-title">Costela Premium</h3>
+                        <p class="item-description">Pão baguete, costela defumada 180g, queijo cheddar, cebola caramelizada e molho barbecue.</p>
+                        <div class="item-price">R$ 29,90</div>
+                        <div class="item-actions">
+                            <div class="quantity">
+                                <button class="qty-btn" data-product="premium" data-action="decrease">-</button>
+                                <span class="qty-value" id="qty-premium">0</span>
+                                <button class="qty-btn" data-product="premium" data-action="increase">+</button>
+                            </div>
+                            <button class="add-to-cart" data-product="premium">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-container">
+                <h2 class="cart-title"><i class="fas fa-shopping-cart"></i> Seu Pedido</h2>
+                
+                <div class="cart-items" id="cart-items">
+                    <div class="empty-cart">Seu carrinho está vazio</div>
+                </div>
+                
+                <div id="delivery-fee-container" style="display: none;">
+                    <div class="delivery-fee">
+                        <span>Taxa de Entrega:</span>
+                        <span id="delivery-fee-value">R$ 5,00</span>
+                    </div>
+                </div>
+                
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total">R$ 0,00</span>
+                </div>
+                
+                <div class="checkout-buttons">
+                    <button class="checkout-btn" id="finalizar-pedido">
+                        <i class="fas fa-utensils"></i> Finalizar Pedido
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="modal" id="customer-modal">
+        <div class="modal-content">
+            <h2 class="modal-title" id="modal-title">Informações para Entrega</h2>
+            
+            <div id="local-instructions" class="instructions" style="display: none;">
+                <p><strong>Para consumo no local:</strong> Seu pedido ficará pronto em aproximadamente 15-20 minutos. Informe seu nome para que possamos chamar quando estiver pronto.</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="customer-name">Nome:</label>
+                <input type="text" id="customer-name" placeholder="Seu nome completo">
+            </div>
+            <div class="form-group">
+                <label for="customer-phone">Telefone:</label>
+                <input type="tel" id="customer-phone" placeholder="(11) 99999-9999">
+            </div>
+            
+            <div id="delivery-fields">
+                <div class="form-group">
+                    <label for="customer-cep">CEP:</label>
+                    <div class="cep-search">
+                        <input type="text" id="customer-cep" placeholder="00000-000" maxlength="9">
+                        <button id="buscar-cep"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                
+                <div class="address-fields" id="address-fields">
+                    <div class="form-group">
+                        <label for="customer-address">Endereço:</label>
+                        <input type="text" id="customer-address" placeholder="Rua, Avenida, etc.">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customer-number">Número:</label>
+                            <input type="text" id="customer-number" placeholder="Nº">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-complement">Complemento:</label>
+                            <input type="text" id="customer-complement" placeholder="Apto, Bloco, etc.">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-neighborhood">Bairro:</label>
+                        <input type="text" id="customer-neighborhood">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customer-city">Cidade:</label>
+                            <input type="text" id="customer-city">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-state">Estado:</label>
+                            <input type="text" id="customer-state" maxlength="2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="customer-notes">Observações:</label>
+                <input type="text" id="customer-notes" placeholder="Alguma observação sobre o pedido?">
+            </div>
+            
+            <div class="form-buttons">
+                <button class="cancel-btn" id="cancelar-pedido">Cancelar</button>
+                <button class="confirm-btn" id="enviar-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Enviar Pedido
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Costela do Titi</h3>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Av. Principal, 123 - Centro</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>(11) 99999-9999</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Aberto todos os dias, 11h-23h</span>
+                    </div>
+                </div>
+                
+                <p>&copy; 2023 Costela do Titi - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
