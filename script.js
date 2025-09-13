@@ -25,8 +25,8 @@ const PRODUCTS = {
     // Bebidas
     'agua_mineral': { name: 'Água Mineral', price: 3.00, category: 'bebida', available: true },
     'agua_gas': { name: 'Água Mineral c/ Gás', price: 4.00, category: 'bebida', available: true },
-    'refri_lata': { name: 'Refrigerante Lata', price: 5.00, category: 'bebida', available: true },
-    'refri_1l': { name: 'Refrigerante 1L', price: 10.00, category: 'bebida', available: true },
+    'refri_lata': { name: 'Refrigerante Lata', price: 6.00, category: 'bebida', available: true },
+    'refri_1l': { name: 'Refrigerante 1L', price: 11.00, category: 'bebida', available: true },
     // Porções
     'batata_150': { name: 'Batata Frita 150g', price: 10.00, category: 'porcao', available: true },
     'batata_300': { name: 'Batata Frita 300g', price: 15.00, category: 'porcao', available: true }
