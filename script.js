@@ -33,7 +33,7 @@ const PRODUCTS = {
 };
 
 const ADDITIONALS = {
-  //  'vinagrete': { name: 'Vinagrete', price: 3.00 },
+    'vinagrete': { name: 'Vinagrete', price: 3.00 },
     'requeijao': { name: 'Requeijão', price: 3.00 },
     'bacon': { name: 'Bacon', price: 3.00 },
     'banana': { name: 'Banana', price: 2.00 }
