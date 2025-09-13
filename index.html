@@ -17,7 +17,7 @@
                 </div>
                 
                 <div class="delivery-option">
-                    <button class="delivery-btn active" id="local-btn">Comer no Local</button>
+                    <button class="delivery-btn active" id="local-btn">Retirada no Local</button>
                     <button class="delivery-btn" id="viagem-btn">Para Viagem</button>
                 </div>
             </div>
@@ -31,65 +31,179 @@
         </div>
     </section>
     
+    <!-- Menu Principal - Lanches -->
     <section class="menu">
         <div class="container">
             <h2 class="section-title">Nossos Lanches</h2>
             
             <div class="menu-items">
                 <div class="menu-item">
-                    <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80');"></div>
+                    <div class="item-image" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-hamburger" style="font-size: 48px; color: #ccc;"></i>
+                    </div>
                     <div class="item-content">
                         <h3 class="item-title">Pão da Casa</h3>
                         <p class="item-description">Pão, carne 120g, queijo, alface e banana frita. Uma combinação clássica e saborosa.</p>
                         <div class="item-price">R$ 20,00</div>
                         <div class="item-actions">
-                            <div class="quantity">
-                                <button class="qty-btn" data-product="casa" data-action="decrease">-</button>
-                                <span class="qty-value" id="qty-casa">0</span>
-                                <button class="qty-btn" data-product="casa" data-action="increase">+</button>
-                            </div>
-                            <button class="add-to-cart" data-product="casa">Adicionar</button>
+                            <button class="customize-btn" data-product="casa">
+                                <i class="fas fa-cogs"></i> Personalizar
+                            </button>
+                            <button class="add-to-cart-direct" data-product="casa">Adicionar</button>
                         </div>
                     </div>
                 </div>
                 
                 <div class="menu-item">
-                    <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=2088&q=80');"></div>
+                    <div class="item-image" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-bacon" style="font-size: 48px; color: #ccc;"></i>
+                    </div>
                     <div class="item-content">
                         <h3 class="item-title">Pão do Titi</h3>
-                        <p class="item-description">Pão, carne 120g, queijo, bacon, alface, cebola roxa e banana frita. Nosso carro-chefe!</p>
-                        <div class="item-price">R$ 25,00</div>
+                        <p class="item-description">Pão, costela desfiada 150g, queijo mussarela, bacon, alface, cebola roxa e banana frita. Nosso carro-chefe!</p>
+                        <div class="item-price">R$ 27,00</div>
                         <div class="item-actions">
-                            <div class="quantity">
-                                <button class="qty-btn" data-product="titi" data-action="decrease">-</button>
-                                <span class="qty-value" id="qty-titi">0</span>
-                                <button class="qty-btn" data-product="titi" data-action="increase">+</button>
-                            </div>
-                            <button class="add-to-cart" data-product="titi">Adicionar</button>
+                            <button class="customize-btn" data-product="titi">
+                                <i class="fas fa-cogs"></i> Personalizar
+                            </button>
+                            <button class="add-to-cart-direct" data-product="titi">Adicionar</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="menu-item">
-                    <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2103&q=80');"></div>
+                <div class="menu-item unavailable">
+                    <div class="item-unavailable-overlay">
+                        <i class="fas fa-clock"></i>
+                        <span>Disponível em breve</span>
+                    </div>
+                    <div class="item-image" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; filter: grayscale(70%); opacity: 0.7;">
+                        <i class="fas fa-crown" style="font-size: 48px; color: #ccc;"></i>
+                    </div>
                     <div class="item-content">
-                        <h3 class="item-title">Cupim Premium</h3>
-                        <p class="item-description">Pão baguete, cupim defumado 180g, queijo cheddar, cebola caramelizada e molho barbecue.</p>
+                        <h3 class="item-title">Costela Premium</h3>
+                        <p class="item-description">Pão baguete, costela defumada 180g, queijo cheddar, cebola caramelizada e molho barbecue.</p>
                         <div class="item-price">R$ 29,90</div>
                         <div class="item-actions">
-                            <div class="quantity">
-                                <button class="qty-btn" data-product="premium" data-action="decrease">-</button>
-                                <span class="qty-value" id="qty-premium">0</span>
-                                <button class="qty-btn" data-product="premium" data-action="increase">+</button>
-                            </div>
-                            <button class="add-to-cart" data-product="premium">Adicionar</button>
+                            <button class="customize-btn disabled" data-product="premium" disabled>
+                                <i class="fas fa-cogs"></i> Indisponível
+                            </button>
+                            <button class="add-to-cart-direct disabled" data-product="premium" disabled>Indisponível</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Menu Bebidas -->
+    <section class="menu bebidas-section">
+        <div class="container">
+            <h2 class="section-title">Bebidas</h2>
+            
+            <div class="simple-items">
+                <div class="simple-item">
+                    <div class="simple-item-info">
+                        <h4>Água Mineral</h4>
+                        <span class="simple-price">R$ 3,00</span>
+                    </div>
+                    <div class="simple-actions">
+                        <div class="quantity">
+                            <button class="qty-btn" data-product="agua_mineral" data-action="decrease">-</button>
+                            <span class="qty-value" id="qty-agua_mineral">0</span>
+                            <button class="qty-btn" data-product="agua_mineral" data-action="increase">+</button>
+                        </div>
+                        <button class="add-to-cart" data-product="agua_mineral">Adicionar</button>
+                    </div>
+                </div>
+
+                <div class="simple-item">
+                    <div class="simple-item-info">
+                        <h4>Água Mineral c/ Gás</h4>
+                        <span class="simple-price">R$ 4,00</span>
+                    </div>
+                    <div class="simple-actions">
+                        <div class="quantity">
+                            <button class="qty-btn" data-product="agua_gas" data-action="decrease">-</button>
+                            <span class="qty-value" id="qty-agua_gas">0</span>
+                            <button class="qty-btn" data-product="agua_gas" data-action="increase">+</button>
+                        </div>
+                        <button class="add-to-cart" data-product="agua_gas">Adicionar</button>
+                    </div>
+                </div>
+
+                <div class="simple-item">
+                    <div class="simple-item-info">
+                        <h4>Refrigerante Lata</h4>
+                        <span class="simple-price">R$ 5,00</span>
+                    </div>
+                    <div class="simple-actions">
+                        <div class="quantity">
+                            <button class="qty-btn" data-product="refri_lata" data-action="decrease">-</button>
+                            <span class="qty-value" id="qty-refri_lata">0</span>
+                            <button class="qty-btn" data-product="refri_lata" data-action="increase">+</button>
+                        </div>
+                        <button class="add-to-cart" data-product="refri_lata">Adicionar</button>
+                    </div>
+                </div>
+
+                <div class="simple-item">
+                    <div class="simple-item-info">
+                        <h4>Refrigerante 1L</h4>
+                        <span class="simple-price">R$ 10,00</span>
+                    </div>
+                    <div class="simple-actions">
+                        <div class="quantity">
+                            <button class="qty-btn" data-product="refri_1l" data-action="decrease">-</button>
+                            <span class="qty-value" id="qty-refri_1l">0</span>
+                            <button class="qty-btn" data-product="refri_1l" data-action="increase">+</button>
+                        </div>
+                        <button class="add-to-cart" data-product="refri_1l">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Porções -->
+    <section class="menu porcoes-section">
+        <div class="container">
+            <h2 class="section-title">Porções</h2>
+            
+            <div class="simple-items">
+                <div class="simple-item">
+                    <div class="simple-item-info">
+                        <h4>Batata Frita 150g</h4>
+                        <span class="simple-price">R$ 10,00</span>
+                    </div>
+                    <div class="simple-actions">
+                        <div class="quantity">
+                            <button class="qty-btn" data-product="batata_150" data-action="decrease">-</button>
+                            <span class="qty-value" id="qty-batata_150">0</span>
+                            <button class="qty-btn" data-product="batata_150" data-action="increase">+</button>
+                        </div>
+                        <button class="add-to-cart" data-product="batata_150">Adicionar</button>
+                    </div>
+                </div>
+
+                <div class="simple-item">
+                    <div class="simple-item-info">
+                        <h4>Batata Frita 300g</h4>
+                        <span class="simple-price">R$ 15,00</span>
+                    </div>
+                    <div class="simple-actions">
+                        <div class="quantity">
+                            <button class="qty-btn" data-product="batata_300" data-action="decrease">-</button>
+                            <span class="qty-value" id="qty-batata_300">0</span>
+                            <button class="qty-btn" data-product="batata_300" data-action="increase">+</button>
+                        </div>
+                        <button class="add-to-cart" data-product="batata_300">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
+    <!-- Carrinho -->
     <section class="cart-section">
         <div class="container">
             <div class="cart-container">
@@ -99,11 +213,11 @@
                     <div class="empty-cart">Seu carrinho está vazio</div>
                 </div>
                 
-                <div id="delivery-fee-container" style="display: none;">
+               <div id="delivery-fee-container" style="display: none;">
                     <div class="delivery-fee">
-                        <span>Taxa de Entrega:</span>
-                        <span id="delivery-fee-value">R$ 5,00</span>
-                    </div>
+                         <span>Taxa de Entrega:</span>
+                         <span id="delivery-fee-value">A combinar</span>
+                     </div>
                 </div>
                 
                 <div class="cart-total">
@@ -119,13 +233,74 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal de Personalização -->
+    <div class="modal" id="customize-modal">
+        <div class="modal-content">
+            <h2 class="modal-title" id="customize-title">Personalizar Lanche</h2>
+            
+            <div class="customize-section">
+                <h3>Produto Base</h3>
+                <div id="base-product-info"></div>
+            </div>
+
+            <div class="customize-section">
+                <h3>Adicionais</h3>
+                <div class="additionals-grid">
+                    <label class="additional-item">
+                        <input type="checkbox" name="additional" value="vinagrete" data-price="3">
+                        <span class="checkmark"></span>
+                        <span class="additional-name">Vinagrete</span>
+                        <span class="additional-price">+ R$ 3,00</span>
+                    </label>
+                    
+                    <label class="additional-item">
+                        <input type="checkbox" name="additional" value="requeijao" data-price="3">
+                        <span class="checkmark"></span>
+                        <span class="additional-name">Requeijão</span>
+                        <span class="additional-price">+ R$ 3,00</span>
+                    </label>
+                    
+                    <label class="additional-item">
+                        <input type="checkbox" name="additional" value="bacon" data-price="3">
+                        <span class="checkmark"></span>
+                        <span class="additional-name">Bacon</span>
+                        <span class="additional-price">+ R$ 3,00</span>
+                    </label>
+                    
+                    <label class="additional-item">
+                        <input type="checkbox" name="additional" value="banana" data-price="2">
+                        <span class="checkmark"></span>
+                        <span class="additional-name">Banana</span>
+                        <span class="additional-price">+ R$ 2,00</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="customize-section">
+                <h3>Observações</h3>
+                <textarea id="item-notes" placeholder="Alguma observação especial para este item?"></textarea>
+            </div>
+
+            <div class="customize-total">
+                <span>Total do Item:</span>
+                <span id="customize-total-value">R$ 0,00</span>
+            </div>
+
+            <div class="form-buttons">
+                <button class="cancel-btn" id="cancel-customize">Cancelar</button>
+                <button class="confirm-btn" id="add-customized">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
     
+    <!-- Modal de Informações do Cliente -->
     <div class="modal" id="customer-modal">
         <div class="modal-content">
             <h2 class="modal-title" id="modal-title">Informações para Entrega</h2>
             
             <div id="local-instructions" class="instructions" style="display: none;">
-                <p><strong>Para consumo no local:</strong> Seu pedido ficará pronto em aproximadamente  minutos. Informe seu nome para que possamos chamar quando estiver pronto.</p>
+                <p><strong>Para consumo no local:</strong> Seu pedido ficará pronto em aproximadamente 15-20 minutos. Informe seu nome para que possamos chamar quando estiver pronto.</p>
             </div>
             
             <div class="form-group">
@@ -200,15 +375,15 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Av. Tiradentes, 2958 - Embratel, Porto Velho - RO</span>
+                        <span>Av. Principal, 123 - Centro</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>(69) 99258-8282 </span>
+                        <span>(69) 99258-8282</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-clock"></i>
-                        <span>Aberto de ter a Dom, 18h-23h</span>
+                        <span>Aberto todos os dias, 11h-23h</span>
                     </div>
                 </div>
                 
