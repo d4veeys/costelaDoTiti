@@ -5,14 +5,14 @@ const PRODUCTS = {
         name: 'Pão da Casa', 
         price: 20.00, 
         category: 'lanche',
-        description: 'Pão, carne 120g, queijo, alface e banana frita',
+        description: 'Pão, carne 100g, queijo, alface e banana frita, cebola roxa',
         available: true
     },
     'titi': { 
         name: 'Pão do Titi', 
-        price: 25.00, 
+        price: 27.00, 
         category: 'lanche',
-        description: 'Pão, carne 120g, queijo, bacon, alface, cebola roxa e banana frita',
+        description: 'Pão, carne 150g, queijo, bacon, alface, cebola roxa e banana frita',
         available: true
     },
     'premium': { 
@@ -33,7 +33,7 @@ const PRODUCTS = {
 };
 
 const ADDITIONALS = {
-    'vinagrete': { name: 'Vinagrete', price: 3.00 },
+  //  'vinagrete': { name: 'Vinagrete', price: 3.00 },
     'requeijao': { name: 'Requeijão', price: 3.00 },
     'bacon': { name: 'Bacon', price: 3.00 },
     'banana': { name: 'Banana', price: 2.00 }
