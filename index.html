@@ -2,204 +2,143 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Costela do Titi - Faça seu Pedido</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Costela do Titi - Delivery de Sanduíches Gourmet</title>
+    <meta name="description" content="O melhor sanduíche de costela defumada de Porto Velho. Delivery rápido e seguro!">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-hamburger"></i>
+            <p>Carregando delícias...</p>
+        </div>
+    </div>
+
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        🔥 Os melhores sanduíches de costela defumada de Porto Velho!
+    </div>
+
+    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <div class="logo-icon"><i class="fas fa-hamburger"></i></div>
-                    <div class="logo-text">Costela do Titi</div>
+                    <div class="logo-icon">
+                        <i class="fas fa-hamburger"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Costela do Titi</h1>
+                        <span class="logo-subtitle">Sanduíches Gourmet</span>
+                    </div>
                 </div>
                 
                 <div class="delivery-option">
-                    <button class="delivery-btn active" id="local-btn">Retirada no Local</button>
-                    <button class="delivery-btn" id="viagem-btn">Para Viagem</button>
+                    <button class="delivery-btn active" id="local-btn" data-mode="local">
+                        <i class="fas fa-utensils"></i>
+                        <span>Comer no Local</span>
+                    </button>
+                    <button class="delivery-btn" id="viagem-btn" data-mode="delivery">
+                        <i class="fas fa-motorcycle"></i>
+                        <span>Delivery</span>
+                    </button>
+                </div>
+
+                <div class="header-info">
+                    <div class="rating-header">
+                        <span class="rating-stars">★★★★★</span>
+                        <span class="rating-text">4.8 (234)</span>
+                    </div>
+                    <div class="delivery-time">
+                        <i class="fas fa-clock"></i>
+                        <span>25-35 min</span>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
     
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Costela do Titi</h1>
-            <p>O melhor sanduíche de costela defumada da região</p>
+            <h2>O Melhor Sanduíche de Costela Defumada</h2>
+            <p>Costela defumada por 12 horas, pão artesanal e ingredientes frescos. Uma experiência única em cada mordida.</p>
+            <button class="cta-button" onclick="scrollToMenu()">
+                <i class="fas fa-utensils"></i>
+                Ver Cardápio
+            </button>
+        </div>
+        <div class="hero-badges">
+            <div class="badge">
+                <i class="fas fa-award"></i>
+                <span>Premiado</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-leaf"></i>
+                <span>Ingredientes Frescos</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-fire"></i>
+                <span>Defumado 12h</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Pagamento Seguro</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Entrega Rápida</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Feito com Amor</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>Qualidade Garantida</span>
+                </div>
+            </div>
         </div>
     </section>
     
-    <!-- Menu Principal - Lanches -->
-    <section class="menu">
+    <!-- Menu Sections -->
+    <section class="menu" id="menu">
         <div class="container">
-            <h2 class="section-title">Nossos Lanches</h2>
-            
-            <div class="menu-items">
-                <div class="menu-item">
-                    <div class="item-image" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-hamburger" style="font-size: 48px; color: #ccc;"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3 class="item-title">Pão da Casa</h3>
-                        <p class="item-description">Pão, carne 100g, queijo, alface e banana frita, cebola roxa. Uma combinação clássica e saborosa.</p>
-                        <div class="item-price">R$ 20,00</div>
-                        <div class="item-actions">
-                            <button class="customize-btn" data-product="casa">
-                                <i class="fas fa-cogs"></i> Personalizar
-                            </button>
-                            <button class="add-to-cart-direct" data-product="casa">Adicionar</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-image" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-bacon" style="font-size: 48px; color: #ccc;"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3 class="item-title">Pão do Titi</h3>
-                        <p class="item-description">Pão, costela desfiada 150g, queijo mussarela, bacon, alface, cebola roxa e banana frita. Nosso carro-chefe!</p>
-                        <div class="item-price">R$ 27,00</div>
-                        <div class="item-actions">
-                            <button class="customize-btn" data-product="titi">
-                                <i class="fas fa-cogs"></i> Personalizar
-                            </button>
-                            <button class="add-to-cart-direct" data-product="titi">Adicionar</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="menu-item unavailable">
-                    <div class="item-unavailable-overlay">
-                        <i class="fas fa-clock"></i>
-                        <span>Disponível em breve</span>
-                    </div>
-                    <div class="item-image" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; filter: grayscale(70%); opacity: 0.7;">
-                        <i class="fas fa-crown" style="font-size: 48px; color: #ccc;"></i>
-                    </div>
-                    <div class="item-content">
-                        <h3 class="item-title">Costela Premium</h3>
-                        <p class="item-description">Pão baguete, costela defumada 180g, queijo cheddar, cebola caramelizada e molho barbecue.</p>
-                        <div class="item-price">R$ 29,90</div>
-                        <div class="item-actions">
-                            <button class="customize-btn disabled" data-product="premium" disabled>
-                                <i class="fas fa-cogs"></i> Indisponível
-                            </button>
-                            <button class="add-to-cart-direct disabled" data-product="premium" disabled>Indisponível</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title">Nossos Sanduíches Gourmet</h2>
+                <p class="section-subtitle">Cada sanduíche é uma obra de arte culinária</p>
             </div>
+            <div class="menu-items" id="sandwiches-menu"></div>
         </div>
     </section>
 
-    <!-- Menu Bebidas -->
     <section class="menu bebidas-section">
         <div class="container">
-            <h2 class="section-title">Bebidas</h2>
-            
-            <div class="simple-items">
-                <div class="simple-item">
-                    <div class="simple-item-info">
-                        <h4>Água Mineral</h4>
-                        <span class="simple-price">R$ 3,00</span>
-                    </div>
-                    <div class="simple-actions">
-                        <div class="quantity">
-                            <button class="qty-btn" data-product="agua_mineral" data-action="decrease">-</button>
-                            <span class="qty-value" id="qty-agua_mineral">0</span>
-                            <button class="qty-btn" data-product="agua_mineral" data-action="increase">+</button>
-                        </div>
-                        <button class="add-to-cart" data-product="agua_mineral">Adicionar</button>
-                    </div>
-                </div>
-
-                <div class="simple-item">
-                    <div class="simple-item-info">
-                        <h4>Água Mineral c/ Gás</h4>
-                        <span class="simple-price">R$ 4,00</span>
-                    </div>
-                    <div class="simple-actions">
-                        <div class="quantity">
-                            <button class="qty-btn" data-product="agua_gas" data-action="decrease">-</button>
-                            <span class="qty-value" id="qty-agua_gas">0</span>
-                            <button class="qty-btn" data-product="agua_gas" data-action="increase">+</button>
-                        </div>
-                        <button class="add-to-cart" data-product="agua_gas">Adicionar</button>
-                    </div>
-                </div>
-
-                <div class="simple-item">
-                    <div class="simple-item-info">
-                        <h4>Refrigerante Lata</h4>
-                        <span class="simple-price">R$ 6,00</span>
-                    </div>
-                    <div class="simple-actions">
-                        <div class="quantity">
-                            <button class="qty-btn" data-product="refri_lata" data-action="decrease">-</button>
-                            <span class="qty-value" id="qty-refri_lata">0</span>
-                            <button class="qty-btn" data-product="refri_lata" data-action="increase">+</button>
-                        </div>
-                        <button class="add-to-cart" data-product="refri_lata">Adicionar</button>
-                    </div>
-                </div>
-
-                <div class="simple-item">
-                    <div class="simple-item-info">
-                        <h4>Refrigerante 1L</h4>
-                        <span class="simple-price">R$ 11,00</span>
-                    </div>
-                    <div class="simple-actions">
-                        <div class="quantity">
-                            <button class="qty-btn" data-product="refri_1l" data-action="decrease">-</button>
-                            <span class="qty-value" id="qty-refri_1l">0</span>
-                            <button class="qty-btn" data-product="refri_1l" data-action="increase">+</button>
-                        </div>
-                        <button class="add-to-cart" data-product="refri_1l">Adicionar</button>
-                    </div>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title">Bebidas Geladas</h2>
+                <p class="section-subtitle">Para acompanhar seu sanduíche</p>
             </div>
+            <div class="simple-items" id="drinks-menu"></div>
         </div>
     </section>
 
-    <!-- Menu Porções -->
     <section class="menu porcoes-section">
         <div class="container">
-            <h2 class="section-title">Porções</h2>
-            
-            <div class="simple-items">
-                <div class="simple-item">
-                    <div class="simple-item-info">
-                        <h4>Batata Frita 150g</h4>
-                        <span class="simple-price">R$ 10,00</span>
-                    </div>
-                    <div class="simple-actions">
-                        <div class="quantity">
-                            <button class="qty-btn" data-product="batata_150" data-action="decrease">-</button>
-                            <span class="qty-value" id="qty-batata_150">0</span>
-                            <button class="qty-btn" data-product="batata_150" data-action="increase">+</button>
-                        </div>
-                        <button class="add-to-cart" data-product="batata_150">Adicionar</button>
-                    </div>
-                </div>
-
-                <div class="simple-item">
-                    <div class="simple-item-info">
-                        <h4>Batata Frita 300g</h4>
-                        <span class="simple-price">R$ 15,00</span>
-                    </div>
-                    <div class="simple-actions">
-                        <div class="quantity">
-                            <button class="qty-btn" data-product="batata_300" data-action="decrease">-</button>
-                            <span class="qty-value" id="qty-batata_300">0</span>
-                            <button class="qty-btn" data-product="batata_300" data-action="increase">+</button>
-                        </div>
-                        <button class="add-to-cart" data-product="batata_300">Adicionar</button>
-                    </div>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title">Acompanhamentos</h2>
+                <p class="section-subtitle">Batatas crocantes e saborosas</p>
             </div>
+            <div class="simple-items" id="sides-menu"></div>
         </div>
     </section>
     
@@ -207,37 +146,65 @@
     <section class="cart-section">
         <div class="container">
             <div class="cart-container">
-                <h2 class="cart-title"><i class="fas fa-shopping-cart"></i> Seu Pedido</h2>
+                <div class="cart-header">
+                    <h2 class="cart-title">
+                        <i class="fas fa-shopping-cart"></i> 
+                        Seu Pedido
+                        <span class="cart-count-header" id="cart-count-header">0 itens</span>
+                    </h2>
+                    <button class="clear-cart-btn" id="clear-cart" style="display: none;">
+                        <i class="fas fa-trash"></i>
+                        Limpar
+                    </button>
+                </div>
                 
                 <div class="cart-items" id="cart-items">
-                    <div class="empty-cart">Seu carrinho está vazio</div>
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Seu carrinho está vazio</h3>
+                        <p>Adicione alguns de nossos deliciosos sanduíches!</p>
+                    </div>
                 </div>
                 
-               <div id="delivery-fee-container" style="display: none;">
-                    <div class="delivery-fee">
-                         <span>Taxa de Entrega:</span>
-                         <span id="delivery-fee-value">A combinar</span>
-                     </div>
-                </div>
-                
-                <div class="cart-total">
-                    <span>Total:</span>
-                    <span id="cart-total">R$ 0,00</span>
-                </div>
+                <div class="cart-summary" id="cart-summary" style="display: none;"></div>
                 
                 <div class="checkout-buttons">
                     <button class="checkout-btn" id="finalizar-pedido">
-                        <i class="fas fa-utensils"></i> Finalizar Pedido
+                        <i class="fas fa-check-circle"></i> 
+                        Finalizar Pedido
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Carrinho Flutuante -->
+    <div class="floating-cart" id="floating-cart">
+        <div class="floating-cart-content" onclick="scrollToCart()">
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="floating-cart-count">0</span>
+            </div>
+            <div class="cart-info">
+                <div class="cart-items-count" id="floating-items-text">Carrinho vazio</div>
+                <div class="cart-total-value" id="floating-total">R$ 0,00</div>
+            </div>
+        </div>
+        <button class="floating-checkout" onclick="scrollToCart()">
+            <i class="fas fa-eye"></i>
+            Ver Carrinho
+        </button>
+    </div>
+
     <!-- Modal de Personalização -->
     <div class="modal" id="customize-modal">
         <div class="modal-content">
-            <h2 class="modal-title" id="customize-title">Personalizar Lanche</h2>
+            <div class="modal-header">
+                <h2 class="modal-title" id="customize-title">Personalizar Sanduíche</h2>
+                <button class="modal-close" onclick="closeCustomizeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
             
             <div class="customize-section">
                 <h3>Produto Base</h3>
@@ -246,152 +213,192 @@
 
             <div class="customize-section">
                 <h3>Adicionais</h3>
-                <div class="additionals-grid">
-                    <label class="additional-item">
-                        <input type="checkbox" name="additional" value="vinagrete" data-price="3">
-                        <span class="checkmark"></span>
-                        <span class="additional-name">Vinagrete</span>
-                        <span class="additional-price">+ R$ 3,00</span>
-                    </label>
-                    
-                    <label class="additional-item">
-                        <input type="checkbox" name="additional" value="requeijao" data-price="3">
-                        <span class="checkmark"></span>
-                        <span class="additional-name">Requeijão</span>
-                        <span class="additional-price">+ R$ 3,00</span>
-                    </label>
-                    
-                    <label class="additional-item">
-                        <input type="checkbox" name="additional" value="bacon" data-price="3">
-                        <span class="checkmark"></span>
-                        <span class="additional-name">Bacon</span>
-                        <span class="additional-price">+ R$ 3,00</span>
-                    </label>
-                    
-                    <label class="additional-item">
-                        <input type="checkbox" name="additional" value="banana" data-price="2">
-                        <span class="checkmark"></span>
-                        <span class="additional-name">Banana</span>
-                        <span class="additional-price">+ R$ 2,00</span>
-                    </label>
-                </div>
+                <div class="additionals-grid" id="additionals-grid"></div>
             </div>
 
             <div class="customize-section">
-                <h3>Observações</h3>
-                <textarea id="item-notes" placeholder="Alguma observação especial para este item?"></textarea>
+                <h3>Observações Especiais</h3>
+                <textarea id="item-notes" placeholder="Alguma observação especial para este item? Ex: sem cebola, ponto da carne, etc."></textarea>
             </div>
 
-            <div class="customize-total">
-                <span>Total do Item:</span>
-                <span id="customize-total-value">R$ 0,00</span>
-            </div>
+            <div class="customize-footer">
+                <div class="customize-total">
+                    <span>Total do Item:</span>
+                    <span id="customize-total-value">R$ 0,00</span>
+                </div>
 
-            <div class="form-buttons">
-                <button class="cancel-btn" id="cancel-customize">Cancelar</button>
-                <button class="confirm-btn" id="add-customized">Adicionar ao Carrinho</button>
+                <div class="form-buttons">
+                    <button class="cancel-btn" onclick="closeCustomizeModal()">Cancelar</button>
+                    <button class="confirm-btn" id="add-customized">
+                        <i class="fas fa-plus"></i>
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
             </div>
         </div>
     </div>
     
-    <!-- Modal de Informações do Cliente -->
+    <!-- Modal do Cliente -->
     <div class="modal" id="customer-modal">
-        <div class="modal-content">
-            <h2 class="modal-title" id="modal-title">Informações para Entrega</h2>
-            
-            <div id="local-instructions" class="instructions" style="display: none;">
-                <p><strong>Para consumo no local:</strong> Seu pedido ficará pronto em aproximadamente 15-20 minutos. Informe seu nome para que possamos chamar quando estiver pronto.</p>
+        <div class="modal-content customer-modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-title">Informações para Entrega</h2>
+                <button class="modal-close" onclick="closeCustomerModal()">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
             
-            <div class="form-group">
-                <label for="customer-name">Nome:</label>
-                <input type="text" id="customer-name" placeholder="Seu nome completo">
-            </div>
-            <div class="form-group">
-                <label for="customer-phone">Telefone:</label>
-                <input type="tel" id="customer-phone" placeholder="(11) 99999-9999">
+            <div id="local-instructions" class="instructions local-instructions" style="display: none;">
+                <div class="instruction-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="instruction-text">
+                    <strong>Para consumo no local:</strong> 
+                    <p>Seu pedido ficará pronto em aproximadamente 15-20 minutos. Informe seu nome para que possamos chamar quando estiver pronto.</p>
+                </div>
             </div>
             
-            <div id="delivery-fields">
+            <form class="customer-form" id="customer-form">
                 <div class="form-group">
-                    <label for="customer-cep">CEP:</label>
-                    <div class="cep-search">
-                        <input type="text" id="customer-cep" placeholder="00000-000" maxlength="9">
-                        <button id="buscar-cep"><i class="fas fa-search"></i></button>
+                    <label for="customer-name">Nome Completo *</label>
+                    <input type="text" id="customer-name" placeholder="Seu nome completo" required>
+                    <span class="field-error" id="name-error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customer-phone">Telefone *</label>
+                    <input type="tel" id="customer-phone" placeholder="(69) 99999-9999" required>
+                    <span class="field-error" id="phone-error"></span>
+                </div>
+                
+                <div id="delivery-fields">
+                    <div class="form-group">
+                        <label for="customer-cep">CEP *</label>
+                        <div class="cep-search">
+                            <input type="text" id="customer-cep" placeholder="76820-000" maxlength="9">
+                            <button type="button" id="buscar-cep">
+                                <i class="fas fa-search"></i>
+                                Buscar
+                            </button>
+                        </div>
+                        <span class="field-error" id="cep-error"></span>
+                        <div class="delivery-distance" id="delivery-distance" style="display: none;"></div>
+                    </div>
+                    
+                    <div class="address-fields" id="address-fields" style="display: none;">
+                        <div class="form-group">
+                            <label for="customer-address">Endereço *</label>
+                            <input type="text" id="customer-address" placeholder="Rua, Avenida, etc." required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="customer-number">Número *</label>
+                                <input type="text" id="customer-number" placeholder="Nº" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="customer-complement">Complemento</label>
+                                <input type="text" id="customer-complement" placeholder="Apto, Bloco, etc.">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customer-neighborhood">Bairro *</label>
+                            <input type="text" id="customer-neighborhood" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="customer-city">Cidade *</label>
+                                <input type="text" id="customer-city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="customer-state">Estado *</label>
+                                <input type="text" id="customer-state" maxlength="2" placeholder="RO" required>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="address-fields" id="address-fields">
-                    <div class="form-group">
-                        <label for="customer-address">Endereço:</label>
-                        <input type="text" id="customer-address" placeholder="Rua, Avenida, etc.">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="customer-number">Número:</label>
-                            <input type="text" id="customer-number" placeholder="Nº">
-                        </div>
-                        <div class="form-group">
-                            <label for="customer-complement">Complemento:</label>
-                            <input type="text" id="customer-complement" placeholder="Apto, Bloco, etc.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="customer-neighborhood">Bairro:</label>
-                        <input type="text" id="customer-neighborhood">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="customer-city">Cidade:</label>
-                            <input type="text" id="customer-city">
-                        </div>
-                        <div class="form-group">
-                            <label for="customer-state">Estado:</label>
-                            <input type="text" id="customer-state" maxlength="2">
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="customer-notes">Observações do Pedido</label>
+                    <textarea id="customer-notes" placeholder="Alguma observação sobre o pedido? Ex: interfone quebrado, entregar na portaria, etc."></textarea>
                 </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="customer-notes">Observações:</label>
-                <input type="text" id="customer-notes" placeholder="Alguma observação sobre o pedido?">
-            </div>
-            
-            <div class="form-buttons">
-                <button class="cancel-btn" id="cancelar-pedido">Cancelar</button>
-                <button class="confirm-btn" id="enviar-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Enviar Pedido
-                </button>
-            </div>
+                
+                <div class="form-buttons">
+                    <button type="button" class="cancel-btn" onclick="closeCustomerModal()">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="confirm-btn whatsapp-btn" id="enviar-whatsapp">
+                        <i class="fab fa-whatsapp"></i> 
+                        Enviar Pedido
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
+
+    <!-- Botão Scroll to Top -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
     
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <h3>Costela do Titi</h3>
+                <div class="footer-section">
+                    <h3>Costela do Titi</h3>
+                    <p>O melhor sanduíche de costela defumada de Porto Velho</p>
+                </div>
                 
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Av. Tiradentes - Centro</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>(69) 99258-8282</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Aberto todos os dias, 11h-23h</span>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Av. Tiradentes, 2958 - Embratel</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Porto Velho - RO, 76820-882</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(69) 99258-8282</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Seg-Dom: 11h às 23h</span>
+                        </div>
                     </div>
                 </div>
                 
-                <p>&copy; 2023 Costela do Titi - Todos os direitos reservados</p>
+                <div class="footer-section">
+                    <h4>Delivery</h4>
+                    <p>Entregamos em toda Porto Velho com taxa calculada automaticamente</p>
+                    <div class="delivery-zones">
+                        <span>Até 3km: R$ 5,00</span>
+                        <span>Até 6km: R$ 8,00</span>
+                        <span>Até 10km: R$ 12,00</span>
+                        <span>Até 15km: R$ 18,00</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Costela do Titi - Todos os direitos reservados</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
         </div>
     </footer>
     
+    <!-- Scripts -->
+    <script src="products.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
